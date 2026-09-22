@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)// verifica se os colisores pararam de se encostar
     {
-        if (collision.gameObject.CompareTag("Grounded"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false; // vai reconhecer quando o jogador estiver fora do chão impedindo que ele realize o pulo novamente;
         }
