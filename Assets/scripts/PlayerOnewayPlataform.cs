@@ -5,7 +5,7 @@ public class PlayerOnewayPlataform : MonoBehaviour
 {
     private GameObject currentOnewayPlataform;
 
-    [SerializeField] private BoxCollider2D PlayerCollider;
+    [SerializeField] private BoxCollider2D PlayerCollider; // faz com que podemos pegar o box collider do player como referencia;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +17,7 @@ public class PlayerOnewayPlataform : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if(currentOnewayPlataform != null)
+            if(currentOnewayPlataform != null)// caso isso seja verdadeiro com base na condição anterior, vai começar a rodar o codigo de deixar os colisores desabilitados;
             {
                 StartCoroutine(DisableCollision());
             }
@@ -45,8 +45,8 @@ public class PlayerOnewayPlataform : MonoBehaviour
     private IEnumerator DisableCollision()
     {
         BoxCollider2D plataformCollider = currentOnewayPlataform.GetComponent<BoxCollider2D>();
-        Physics2D.IgnoreCollision(PlayerCollider, plataformCollider);
-        yield return new WaitForSeconds(1f);
+        Physics2D.IgnoreCollision(PlayerCollider, plataformCollider);// vai fazer com que a colisão da plataforma e do player seja ignorada;
+        yield return new WaitForSeconds(1f); // define em quanto tempo a plataforma e o player vão voltar a ter colisor;
         Physics2D.IgnoreCollision(PlayerCollider, plataformCollider, false);
 
     }
