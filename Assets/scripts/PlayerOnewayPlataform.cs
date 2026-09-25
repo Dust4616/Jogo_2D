@@ -22,6 +22,7 @@ public class PlayerOnewayPlataform : MonoBehaviour
                 StartCoroutine(DisableCollision());
             }
         }
+       
 
         
     }
