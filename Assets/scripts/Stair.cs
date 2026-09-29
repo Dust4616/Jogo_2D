@@ -4,6 +4,7 @@ public class Stair : MonoBehaviour
 {
     public GameObject Stairsobjects;
     public bool stairtoggle;
+    public bool subindo=false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,7 +15,7 @@ public class Stair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (stairtoggle == false)
             {
@@ -26,6 +27,11 @@ public class Stair : MonoBehaviour
             Stairsobjects.SetActive(false);
             stairtoggle = false;
             }
+
+            if(stairtoggle == true && Stairsobjects == true)
+            {
+
+            }
         }
         
     }
@@ -33,17 +39,15 @@ public class Stair : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Stairs"))
         {
-            if (stairtoggle == false)
-            {
+
+            Debug.Log("está encostando");
                 Stairsobjects.SetActive(true);
                 stairtoggle = true;
-            }
-            else
-            {
-                Stairsobjects.SetActive(false);
-                stairtoggle = false;
-            }
+            
         }
     }
-   
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("saiu");
+    }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true; // Vai reconhecer quando o is Grounded for igual a verdadeiro;
+        }
+        if (collision.gameObject.CompareTag("Dano"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }

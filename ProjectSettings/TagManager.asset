@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Ground
   - OneWayPlataform
-  - Stair
+  - Stairs
+  - Dano
   layers:
   - Default
   - TransparentFX
