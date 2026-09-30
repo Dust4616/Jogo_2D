@@ -1,18 +1,21 @@
-    using UnityEngine;
+using System.Collections;
+using UnityEngine;
 
 public class Stair : MonoBehaviour
 {
     public GameObject Stairsobjects;
     public bool stairtoggle;
-    public bool subindo=false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Coroutine timerrunning;
+    private Collider2D stair;
+    [SerializeField] private float desable = 2f;
+
     void Start()
     {
         stairtoggle = false;
         Stairsobjects.SetActive(false);
+        stair = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -21,33 +24,48 @@ public class Stair : MonoBehaviour
             {
                 Stairsobjects.SetActive(true);
                 stairtoggle = true;
+
+                if (stair != null)
+                {
+                    stair.enabled = true;
+                }
+                if (timerrunning != null)
+                {
+                    StopCoroutine(timerrunning);
+                }
             }
             else
             {
-            Stairsobjects.SetActive(false);
-            stairtoggle = false;
-            }
-
-            if(stairtoggle == true && Stairsobjects == true)
-            {
-
+                Stairsobjects.SetActive(false);
+                stairtoggle = false;
             }
         }
-        
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Stairs"))
-        {
 
-            Debug.Log("está encostando");
-                Stairsobjects.SetActive(true);
-                stairtoggle = true;
-            
-        }
-    }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("saiu");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            timerrunning = StartCoroutine(DesativarColisor());
+        }
+        Debug.Log("saindo");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("encostando");
+        if (collision.gameObject.CompareTag("Player") && timerrunning != null)
+        {
+            StopCoroutine(timerrunning);
+        }
+    }
+
+    private IEnumerator DesativarColisor()
+    {
+        yield return new WaitForSeconds(desable);
+        if (stair != null)
+        {
+            stair.enabled = false;
+        }
     }
 }
