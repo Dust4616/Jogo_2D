@@ -8,6 +8,8 @@ TagManager:
   - OneWayPlataform
   - Stairs
   - Dano
+  - Next
+  - return
   layers:
   - Default
   - TransparentFX

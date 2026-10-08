@@ -669,15 +669,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4662232005972109122, guid: 97e84b4762e4feb479e3df13a75adf2e, type: 3}
+      propertyPath: m_TagString
+      value: return
+      objectReference: {fileID: 0}
     - target: {fileID: 8413039327703134684, guid: 97e84b4762e4feb479e3df13a75adf2e, type: 3}
       propertyPath: _targetScaneName
       value: sala de inicio
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852411905750859, guid: 97e84b4762e4feb479e3df13a75adf2e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4662232005972109122, guid: 97e84b4762e4feb479e3df13a75adf2e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1781803153}
   m_SourcePrefab: {fileID: 100100000, guid: 97e84b4762e4feb479e3df13a75adf2e, type: 3}
+--- !u!1 &1781803152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4662232005972109122, guid: 97e84b4762e4feb479e3df13a75adf2e, type: 3}
+  m_PrefabInstance: {fileID: 1781803151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1781803153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781803152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17444f764b2bbd94da1602ef788b82f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Portal: {fileID: 1781803152}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
