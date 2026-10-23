@@ -21,4 +21,6 @@ public class TabController : MonoBehaviour
         pages[tabNO].SetActive(true);
         tabImages[tabNO].color = Color.white;
     }
+    
+    
 }
