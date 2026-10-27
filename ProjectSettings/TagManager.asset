@@ -47,5 +47,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: wall
+    uniqueID: 2249280707
+    locked: 0
+  - name: walkfront
+    uniqueID: 363936225
+    locked: 0
+  - name: collision
+    uniqueID: 4078545005
+    locked: 0
+  - name: player
+    uniqueID: 3621877173
+    locked: 0
+  - name: walkbehind
+    uniqueID: 1006616361
+    locked: 0
+  - name: Decor
+    uniqueID: 1654783733
+    locked: 0
   m_RenderingLayers:
   - Default
