@@ -7,9 +7,11 @@ using UnityEditor.Experimental.GraphView;
 public class MapTransation : MonoBehaviour
 {
     [SerializeField] PolygonCollider2D mapBoundry;
-    CinemachineConfiner2D confiner;
     [SerializeField] Direction direction;
-    enum Direction { Up, Down, Left, Right }
+    [SerializeField] Transform teleportTargetPosition;
+    CinemachineConfiner2D confiner;
+
+    enum Direction { Up, Down, Left, Right, teleport }
 
     private void Awake()
     {
@@ -26,6 +28,12 @@ public class MapTransation : MonoBehaviour
     }
     private void UpdatePlayerPosition(GameObject Player)
     {
+        if(direction == Direction.teleport)
+        {
+            Player.transform.position = teleportTargetPosition.position;
+            return;
+        }
+
         Vector3 newPos = Player.transform.position;
 
         switch (direction)
