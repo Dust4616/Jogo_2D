@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     private Rigidbody2D rb;
     private bool isGrounded = false; // o boll so tem duas formas de verificação se é verdadeira ou falsa, e a varivel isGrounded e literalmente se esta no chão;
-
+    public MenuScene menu;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();// rb vai receber o Rigidbody2D
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Dano"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            menu.SeeGameOver();// isso faz com que use o metodo de outro script;
         }
 
     }
