@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
         {
             menu.SeeGameOver();// isso faz com que use o metodo de outro script;
         }
+        if (collision.gameObject.CompareTag("Victory"))
+        {
+            menu.SeeVictory();
+        }
 
     }
 

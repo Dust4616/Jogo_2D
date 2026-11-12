@@ -5,20 +5,24 @@ public class MenuScene : MonoBehaviour
 {
     public GameObject painelOver;
     public GameObject painelPause;
+    public GameObject painelVictory;
     bool pausado = false;
     bool GameOver = false;
+    bool Victory = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         painelPause.SetActive(false);// o setActive serve para abilitar ou desativar um certo objeto dentro do jogo, nesse caso o objeto detro da variavel especificada;
         painelOver.SetActive(false);
+        painelVictory.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (pausado)
             {
@@ -53,9 +57,22 @@ public class MenuScene : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void Reset()
+    public void SeeVictory()
+    {
+        Victory = true;
+        painelVictory.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Resetar()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // faz com que recarregue a cena que o jogador esta, sem precisar configurar toda vez em cada cena especifica;
+    }
+
+    public void MenuReturn()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }
